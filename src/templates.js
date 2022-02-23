@@ -3,15 +3,15 @@ export const templateHeader = () => `
     <h1 class="header__title">LOGO</h1>
   </header>`;
 
-export const templateSearchBar = ({ input }) => {
+export const templateSearchBar = ({ inputs }) => {
   let search = `
   <section class="search">
     <input class="search__input" type="text" placeholder="search">
     <ul class="search__list">`;
 
-  input.forEach(item => {
+  inputs.forEach(item => {
     search += `
-      <li class="search__item">${item}</li>`;
+      <li class="search__item"><button>${item}</button></li>`;
   });
 
   search += `
@@ -37,3 +37,11 @@ export const imagesTemplate = ({ images }) => {
 
   return imgs;
 };
+
+const template = currentState => `
+  ${templateHeader()}
+  ${templateSearchBar(currentState)}
+  ${imagesTemplate(currentState)}
+`;
+
+export default template;

@@ -1,7 +1,22 @@
 $font-size: 1rem;
-$font-color: lch(53% 105 40);
+$font-color: red;
 
 html {
   font-size: $font-size;
   color: $font-color;
+}
+
+.search__input {
+  position: relative;
+}
+
+.search__list {
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  display: none;
+}
+
+.search:focus-within .search__list {
+  display: block;
 }
