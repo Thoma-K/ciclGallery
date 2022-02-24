@@ -34,8 +34,6 @@ const render = (htmlString, el) => {
   });
 };
 
-console.log(13);
-
 window.addEventListener('statechange', () => {
   render(template(state), document.querySelector('#root'));
 });
