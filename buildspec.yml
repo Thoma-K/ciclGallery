@@ -1,4 +1,9 @@
 version: 0.2
+env:
+  variables:
+    ACCESS_KEY: "v_4mcQahaN0T95u-el5EmlDWSq1B16zJyYjkEtRYwm4"
+  exported-variables:
+    - ACCESS_KEY
 phases:
   install:
     runtime-versions:
