@@ -9,7 +9,8 @@ let state = {
 };
 
 const addInput = (inputs, input) => [input, ...inputs]
-  .reduce((arr, el) => (arr.includes(el) ? arr : [...arr, el]), []);
+  .reduce((arr, el) => (arr.includes(el) ? arr : [...arr, el]), [])
+  .filter((el, i) => i <= 5);
 
 const update = newState => {
   state = { ...state, ...newState };
@@ -18,9 +19,11 @@ const update = newState => {
   window.dispatchEvent(new Event('statechange'));
 };
 
-const getImages = query => fetch(`https://api.unsplash.com/search/photos?client_id=${ACCESS_KEY}&query=${query}`)
-  .then(res => res.json())
-  .then(json => json.results.map(obj => obj.urls.small));
+const getImages = async query => {
+  const res = await fetch(`https://api.unsplash.com/search/photos?client_id=${ACCESS_KEY}&query=${query}`);
+  const json = await res.json();
+  return json.results.map(obj => obj.urls.small);
+};
 
 const eventListenerInput = event => {
   if (event.key === 'Enter') {
