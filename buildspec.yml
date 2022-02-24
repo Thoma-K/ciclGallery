@@ -13,6 +13,8 @@ phases:
       - npm install
   build:
     commands:
+      - ACCESS_KEY=${ACCESS_KEY}
+      - CODEBUILD_BUILD_ID=${CODEBUILD_BUILD_ID}
       - npm run build
 artifacts:
   files:
