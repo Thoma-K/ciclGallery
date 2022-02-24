@@ -7,7 +7,8 @@
     "test": "jest tests/*.test.js",
     "lint": "eslint '**/*.js'",
     "build": "webpack",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "e2e": "echo 'not implemented'"
   },
   "repository": {
     "type": "git",
