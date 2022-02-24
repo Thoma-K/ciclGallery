@@ -1,8 +1,5 @@
 import { templateHeader, templateSearchBar, imagesTemplate } from './templates';
 
-console.log('CODEBUILD_BUILD_ID', process.env.CODEBUILD_BUILD_ID);
-console.log('ACCESS_KEY', process.env.ACCESS_KEY);
-
 let state = {
   input: ['dog', 'cat'],
   images: [],

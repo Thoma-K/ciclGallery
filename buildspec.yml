@@ -1,9 +1,4 @@
 version: 0.2
-env:
-  variables:
-    ACCESS_KEY: "v_4mcQahaN0T95u-el5EmlDWSq1B16zJyYjkEtRYwm4"
-  exported-variables:
-    - ACCESS_KEY
 phases:
   install:
     runtime-versions:
@@ -14,7 +9,6 @@ phases:
   build:
     commands:
       - ACCESS_KEY=${ACCESS_KEY}
-      - CODEBUILD_BUILD_ID=${CODEBUILD_BUILD_ID}
       - npm run build
 artifacts:
   files:

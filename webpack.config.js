@@ -34,7 +34,7 @@ module.exports = {
       ],
     }),
     new Dotenv(),
-    new webpack.EnvironmentPlugin(['ACCESS_KEY', 'CODEBUILD_BUILD_ID']),
+    new webpack.EnvironmentPlugin(['ACCESS_KEY']),
   ],
 
   module: {
