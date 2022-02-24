@@ -1,7 +1,5 @@
 import { templateHeader, templateSearchBar, imagesTemplate } from './templates';
 
-const { ACCESS_KEY } = process.env;
-
 let state = {
   input: ['dog', 'cat'],
   images: [],
@@ -18,7 +16,7 @@ const update = newState => {
   window.dispatchEvent(new Event('statechange'));
 };
 
-const getImages = query => fetch(`https://api.unsplash.com/search/photos?client_id=${ACCESS_KEY}&query=${query}`)
+const getImages = query => fetch(`https://api.unsplash.com/search/photos?client_id=${process.env.ACCESS_KEY}&query=${query}`)
   .then(res => res.json())
   .then(json => json.results.map(obj => obj.urls.small))
   .then(imageList => update({ images: imageList }));
