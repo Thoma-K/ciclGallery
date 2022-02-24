@@ -7,7 +7,7 @@ export const templateSearchBar = ({ input }) => {
   let search = `
   <section class="search">
     <input class="search__input" type="text" placeholder="search">
-    <ul class="search___list">`;
+    <ul class="search__list">`;
 
   input.forEach(item => {
     search += `

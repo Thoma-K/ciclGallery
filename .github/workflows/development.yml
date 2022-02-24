@@ -28,12 +28,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: install dependencies
         run: npm install
-
-  test:
-    name: test-lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
       # Runs a set of commands using the runners shell
       - name: run all tests
         run: npm t
