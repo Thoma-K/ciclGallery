@@ -28,12 +28,13 @@ module.exports = {
 
   plugins: [
     new CleanWebpackPlugin(),
-    new Dotenv(),
     new CopyPlugin({
       patterns: [
         { from: "public"},
       ],
     }),
+    new Dotenv(),
+    new webpack.EnvironmentPlugin(['ACCESS_KEY', 'CODEBUILD_BUILD_ID']),
   ],
 
   module: {
