@@ -2,12 +2,13 @@
   "name": "ciclgallery",
   "version": "1.0.0",
   "description": "Creating an app fully deployed in a server. Image Gallery.",
-  "engines": { 
+  "engines": {
     "node": "14.x"
   },
   "main": "server.js",
   "scripts": {
-    "start": "webpack serve",
+    "start": "node server.js",
+    "dev": "webpack serve",
     "test": "jest tests/*.test.js",
     "lint": "eslint '**/*.js'",
     "build": "webpack",
@@ -45,6 +46,7 @@
   "dependencies": {
     "@babel/runtime": "^7.17.2",
     "dotenv": "^16.0.0",
+    "express": "^4.17.3",
     "postcss-preset-env": "^7.4.1",
     "webpack-dev-server": "^4.7.4"
   }
