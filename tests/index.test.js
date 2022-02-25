@@ -24,12 +24,12 @@ describe('searchBarTemplate', () => {
     const actual = templateSearchBar(state);
     const expected = `
   <section class="search">
-    <input class="search__input" type="text" placeholder="search">
-    <ul class="search__list">
-      <li class="search__item">dogs</li>
-      <li class="search__item">cats</li>
-      <li class="search__item">elephants</li>
-    </ul>
+    <input class="search__input" list="list" type="text" placeholder="search">
+    <datalist class="search__list" id="list">
+      <option class="search__item" value="dogs">
+      <option class="search__item" value="cats">
+      <option class="search__item" value="elephants">
+    </datalist>
   </section>`;
 
     expect(actual).toBe(expected);

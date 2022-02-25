@@ -27,3 +27,30 @@ describe('Renders initial state correctly', () => {
     expect(element.length).toBe(0);
   });
 });
+
+describe('Renders updated stated correctly', () => {
+  let document;
+
+  beforeAll(() => {
+    const state = {
+      input: ['dogs', 'houses', 'chile', 'greece', 'poland'],
+      images: ['link1', 'link2', 'link3'],
+    };
+    // structure of HTML in string:
+    const htmlDOM = new JSDOM(template(state));
+    document = htmlDOM.window.document;
+  });
+
+  test('Check input search bar is rendered', () => {
+    const element = document.querySelector('.search__input');
+    expect(element).not.toBeUndefined();
+  });
+  test('Check input list length', () => {
+    const element = document.querySelectorAll('.search__item');
+    expect(element.length).toBe(5);
+  });
+  test('Check that we have no images', () => {
+    const element = document.querySelectorAll('.images__item');
+    expect(element.length).toBe(3);
+  });
+});
