@@ -1,7 +1,9 @@
 import { template } from './templates';
 
+const localStorageInput = localStorage.getItem('input');
+
 let state = {
-  input: ['dogs', 'houses'],
+  input: localStorageInput === null ? [] : JSON.parse(localStorageInput),
   images: [],
 };
 
@@ -33,6 +35,7 @@ const render = (htmlString, el) => {
         images: imgList,
       };
       update(newState);
+      localStorage.setItem('input', JSON.stringify(newState.input));
     }
   });
 };
