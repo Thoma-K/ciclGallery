@@ -1,15 +1,9 @@
-import { templateHeader, templateSearchBar, imagesTemplate } from './templates';
+import { template } from './templates';
 
 let state = {
-  input: ['dog', 'cat'],
+  input: ['dogs', 'houses'],
   images: [],
 };
-
-const template = currentState => `
-  ${templateHeader()}
-  ${templateSearchBar(currentState)}
-  ${imagesTemplate(currentState)}
-`;
 
 const update = newState => {
   state = { ...state, ...newState };

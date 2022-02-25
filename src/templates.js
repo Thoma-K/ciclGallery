@@ -37,3 +37,9 @@ export const imagesTemplate = ({ images }) => {
 
   return imgs;
 };
+
+export const template = currentState => `
+  ${templateHeader()}
+  ${templateSearchBar(currentState)}
+  ${imagesTemplate(currentState)}
+`;
