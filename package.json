@@ -7,10 +7,10 @@
   },
   "main": "server.js",
   "scripts": {
+    "start": "webpack serve",
     "test": "jest tests/*.test.js",
     "lint": "eslint '**/*.js'",
     "build": "webpack",
-    "dev": "webpack serve",
     "e2e": "echo 'not implemented'"
   },
   "repository": {
