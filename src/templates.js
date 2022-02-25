@@ -6,16 +6,19 @@ export const templateHeader = () => `
 export const templateSearchBar = ({ input }) => {
   let search = `
   <section class="search">
-    <input class="search__input" list="list" type="text" placeholder="search">
-    <datalist class="search__list" id="list">`;
+    <form class="search__form">
+      <input class="search__input" list="list" type="text" placeholder="search">
+      <datalist class="search__list" id="list">`;
 
   input.forEach(item => {
     search += `
-      <option class="search__item" value="${item}">`;
+        <option class="search__item" value="${item}">`;
   });
 
   search += `
-    </datalist>
+      </datalist>
+      <button class="search__submit" type="submit">Submit</button>
+    </form>
   </section>`;
 
   return search;
