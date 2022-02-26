@@ -15,7 +15,7 @@ describe('templateHeader', () => {
 describe('searchBarTemplate', () => {
   test('Returns a string for a search with ', () => {
     const state = {
-      inputs: [
+      input: [
         'dogs',
         'cats',
         'elephants',
