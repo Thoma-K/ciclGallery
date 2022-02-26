@@ -3,14 +3,14 @@ export const templateHeader = () => `
     <h1 class="header__title">LOGO</h1>
   </header>`;
 
-export const templateSearchBar = ({ inputs }) => {
+export const templateSearchBar = ({ input }) => {
   let search = `
   <section class="search">
     <form class="search__form">
       <input class="search__input" list="list" type="text" placeholder="search">
       <datalist class="search__list" id="list">`;
 
-  inputs.forEach(item => {
+  input.forEach(item => {
     search += `
         <option class="search__item" value="${item}">`;
   });

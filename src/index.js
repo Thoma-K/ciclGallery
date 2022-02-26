@@ -10,8 +10,8 @@ let state = {
 
 const update = newState => {
   state = { ...state, ...newState };
-  window.localStorage.setItem('inputs', JSON.stringify(state.inputs));
-  window.history.pushState({}, '', `#${state.inputs[0]}`);
+  window.localStorage.setItem('input', JSON.stringify(state.input));
+  window.history.pushState(state, '', `#${state.input[0]}`);
   window.dispatchEvent(new Event('statechange'));
 };
 
@@ -43,12 +43,11 @@ const render = (htmlString, el) => {
     };
     update(newState);
     localStorage.setItem('input', JSON.stringify(newState.input));
-    window.history.pushState({}, '', `#${input}`);
   });
 };
 
 window.addEventListener('statechange', () => {
-  render(template(state), document.querySelector('#root'));
+  render(template(window.history.state), document.querySelector('#root'));
 });
 
 const init = async () => {
@@ -63,7 +62,17 @@ const init = async () => {
     localStorage.setItem('input', JSON.stringify(newState.input));
     return;
   }
+
+  if (window.history.state) {
+    render(template(window.history.state), document.querySelector('#root'));
+    return;
+  }
+
   render(template(state), document.querySelector('#root'));
 };
+
+window.addEventListener('popstate', e => {
+  render(template(e.state), document.querySelector('#root'));
+});
 
 init();
