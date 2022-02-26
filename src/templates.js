@@ -6,16 +6,19 @@ export const templateHeader = () => `
 export const templateSearchBar = ({ inputs }) => {
   let search = `
   <section class="search">
-    <input class="search__input" type="text" placeholder="search">
-    <ul class="search__list">`;
+    <form class="search__form">
+      <input class="search__input" list="list" type="text" placeholder="search">
+      <datalist class="search__list" id="list">`;
 
   inputs.forEach(item => {
     search += `
-      <li class="search__item"><button>${item}</button></li>`;
+        <option class="search__item" value="${item}">`;
   });
 
   search += `
-    </ul>
+      </datalist>
+      <button class="search__submit" type="submit">Submit</button>
+    </form>
   </section>`;
 
   return search;
@@ -38,10 +41,8 @@ export const imagesTemplate = ({ images }) => {
   return imgs;
 };
 
-const template = currentState => `
+export const template = currentState => `
   ${templateHeader()}
   ${templateSearchBar(currentState)}
   ${imagesTemplate(currentState)}
 `;
-
-export default template;

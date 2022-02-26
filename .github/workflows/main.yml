@@ -1,0 +1,27 @@
+name: Audit and e2e
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: setup Node v14
+        uses: actions/setup-node@v2.5.1
+        with: 
+          node-version: '14.x'
+
+      - name: install dependencies
+        run: npm install
+
+      - name: run audit
+        run: npm audit
+
+      - name: run e2e
+        run: npm run e2e

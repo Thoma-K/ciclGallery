@@ -1,0 +1,17 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14.x
+  pre_build:
+    commands:
+      - npm install
+  build:
+    commands:
+      - ACCESS_KEY=${ACCESS_KEY}
+      - npm run build
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no
+  base-directory: dist

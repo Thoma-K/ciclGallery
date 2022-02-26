@@ -1,22 +1,41 @@
-$font-size: 1rem;
-$font-color: red;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-html {
-  font-size: $font-size;
-  color: $font-color;
+.header {
+  text-align: center;
+  padding: 4rem;
+  background-color: rgb(140, 181, 214);
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
 }
 
 .search__input {
-  position: relative;
+  padding: 0.3rem 0.5rem;
 }
 
-.search__list {
-  position: absolute;
-  width: 100%;
-  background-color: white;
-  display: none;
+.search__submit {
+  padding: 0.3rem 0.5rem;
 }
 
-.search:focus-within .search__list {
-  display: block;
+.images__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+}
+
+.images__item {
+  margin: 1rem;
+}
+
+.images__el {
+  max-height: 20rem;
+  max-width: 100%;
 }
