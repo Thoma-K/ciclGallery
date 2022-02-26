@@ -8,10 +8,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "webpack serve",
+    "dev": "webpack serve --config dev.config.js",
     "test": "jest tests/*.test.js",
     "lint": "eslint '**/*.js'",
-    "build": "webpack",
+    "build": "webpack --config prod.config.js",
     "e2e": "jest e2e/*.test.js"
   },
   "repository": {

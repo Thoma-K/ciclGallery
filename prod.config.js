@@ -1,40 +1,24 @@
 const path = require('path');
-const webpack = require('webpack');
-const Dotenv = require('dotenv-webpack');
+const { EnvironmentPlugin } = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
-
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: {
-    main: path.resolve(__dirname, 'src', 'index.js'),
-  },
-
+  mode: 'production',
+  entry: path.join(__dirname, 'src', 'index.js'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js',
-  },
-  
-  mode: 'development',
-
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'public'),
-    },
-    compress: true,
-    hot: true,
-    port: 8080,
+    path: path.join(__dirname, 'dist'),
+    filename: 'main.bundle.js',
   },
 
   plugins: [
     new CleanWebpackPlugin(),
     new CopyPlugin({
       patterns: [
-        { from: "public"},
+        { from: 'public' },
       ],
     }),
-    new Dotenv(),
-    new webpack.EnvironmentPlugin(['ACCESS_KEY']),
+    new EnvironmentPlugin(['ACCESS_KEY']),
   ],
 
   module: {
