@@ -11,7 +11,7 @@ let state = {
 const update = newState => {
   state = { ...state, ...newState };
   window.localStorage.setItem('input', JSON.stringify(state.input));
-  window.history.pushState(state, '', `#${state.input[0]}`);
+  window.history.pushState(state, '', `?search=${state.input[0]}`);
   window.dispatchEvent(new Event('statechange'));
 };
 
@@ -51,11 +51,12 @@ window.addEventListener('statechange', () => {
 });
 
 const init = async () => {
-  if (window.location.hash) {
-    const hashInput = window.location.hash.slice(1);
-    const imgList = await getImages(hashInput);
+  const url = new URL(window.location.href);
+  const search = url.searchParams.get('search');
+  if (search) {
+    const imgList = await getImages(search);
     const newState = {
-      input: addInput(hashInput, state.input),
+      input: addInput(search, state.input),
       images: imgList,
     };
     update(newState);
